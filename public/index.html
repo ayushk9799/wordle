@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Five-Letter Word Input</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #allinput div input{
+           border-radius: 3px;
+            width: 45px;
+            height:45px;
+            text-align: center;
+            pointer-events: none;
+            font-size: 33px;
+            margin: 2px;
+            border:1px solid rgb(152, 150, 150);
+            transition: 0.5s;
+        }
+
+      #keyboard
+      {
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        margin-top:30px;
+      }
+        #keyboardcontainer {
+            display: grid;
+            grid-template-rows: repeat(3, 1fr); 
+            gap: 5px;
+            row-gap: 10px;
+            
+        }
+
+        .key {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           padding-left: 3px;
+           padding-right: 3px;
+           padding-top:5px;
+           padding-bottom:5px;
+            background-color: #dce1ed;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            user-select: none;
+            border-radius: 3px;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.5s;
+
+        }
+        #enter
+        {
+            padding-left:10px;
+            padding-right:10px
+        }
+        #cut
+        {
+            padding-left:10px;
+            padding-right:10px
+        }
+        .key:hover{
+            background-color: #9b9c9e;
+        }
+        .keyrow
+        {
+            display:grid;
+            grid-template-columns: repeat(10,1fr);
+            column-gap: 1%;
+        }
+        #allinput
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .keyrow2
+        {
+            display:grid;
+            grid-template-columns: repeat(9,1fr);
+            column-gap: 1%;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <div class="custom-overlay"></div>
+    <h1>Enter a Five-Letter Word</h1>
+    <form>
+        <div id="allinput">
+            <div>
+            <input type="text" class="char-input0" maxlength="1" required>
+            <input type="text" class="char-input0" maxlength="1" required>
+            <input type="text" class="char-input0" maxlength="1" required>
+            <input type="text" class="char-input0" maxlength="1" required>
+            <input type="text" class="char-input0" maxlength="1" required>
+             <br>
+            <input type="text" class="char-input1" maxlength="1" required>
+            <input type="text" class="char-input1" maxlength="1" required>
+            <input type="text" class="char-input1" maxlength="1" required>
+            <input type="text" class="char-input1" maxlength="1" required>
+            <input type="text" class="char-input1" maxlength="1" required>
+             <br>
+            <input type="text" class="char-input2" maxlength="1" required>
+            <input type="text" class="char-input2" maxlength="1" required>
+            <input type="text" class="char-input2" maxlength="1" required>
+            <input type="text" class="char-input2" maxlength="1" required>
+            <input type="text" class="char-input2" maxlength="1" required>
+            <br>
+            <input type="text" class="char-input3" maxlength="1" required>
+            <input type="text" class="char-input3" maxlength="1" required>
+            <input type="text" class="char-input3" maxlength="1" required>
+            <input type="text" class="char-input3" maxlength="1" required>
+            <input type="text" class="char-input3" maxlength="1" required>
+            <br>
+            <input type="text" class="char-input4" maxlength="1" required>
+            <input type="text" class="char-input4" maxlength="1" required>
+            <input type="text" class="char-input4" maxlength="1" required>
+            <input type="text" class="char-input4" maxlength="1" required>
+            <input type="text" class="char-input4" maxlength="1" required>
+            <br>
+            <input type="text" class="char-input5" maxlength="1" required>
+            <input type="text" class="char-input5" maxlength="1" required>
+            <input type="text" class="char-input5" maxlength="1" required>
+            <input type="text" class="char-input5" maxlength="1" required>
+            <input type="text" class="char-input5" maxlength="1" required>   
+            </div>
+             </div>
+        
+    </form>
+    <div id="keyboard">
+        <div id="keyboardcontainer">
+            <div class="keyrow">
+        <div class="key" id="Q">Q</div>
+<div class="key" id="W">W</div>
+<div class="key" id="E">E</div>
+<div class="key" id="R">R</div>
+<div class="key" id="T">T</div>
+<div class="key" id="Y">Y</div>
+<div class="key" id="U">U</div>
+<div class="key" id="I">I</div>
+<div class="key" id="O">O</div>
+<div class="key" id="P">P</div>
+</div>
+
+<div class="keyrow2">
+    <div class="key" id="A">A</div>
+    <div class="key" id="S">S</div>
+    <div class="key" id="D">D</div>
+    <div class="key" id="F">F</div>
+    <div class="key" id="G">G</div>
+    <div class="key" id="H">H</div>
+    <div class="key" id="J">J</div>
+    <div class="key" id="K">K</div>
+    <div class="key" id="L">L</div>
+</div>
+<div class="keyrow">
+    <div class="key" id="enter">Enter</div>
+    <div class="key" id="Z">Z</div>
+    <div class="key" id="X">X</div>
+    <div class="key" id="C">C</div>
+    <div class="key" id="V">V</div>
+    <div class="key" id="B">B</div>
+    <div class="key" id="N">N</div>
+    <div class="key" id="M">M</div>
+    <div class="key" id="cut">Cut</div>
+</div>
+
+        
+    </div>
+    </div>
+     
+    <script type="module">
+        let wordset;
+        let actualWord;
+        let storeActualWord;
+        let random=Math.floor(Math.random()*5728);
+       fetch('/api/wordset').then((response)=>response.json()).then((data)=>
+       {
+
+        console.log(data)
+                 actualWord=data.wordset[random]
+                 actualWord=actualWord.split('')
+                 storeActualWord=[...actualWord];
+                 console.log(actualWord)
+                wordset=new Set(data.wordset);
+               console.log(wordset.has("which"))
+       })
+        
+        let classIndex = 0;
+        let charInputs;
+        let indexHash = 0;
+        
+        let makeWord='';
+        
+       
+        let wordArray=[];
+        let answer=[];
+        let keySelector="";
+        const keys = document.querySelectorAll('.key');
+
+        const inputSelector = (value) => {
+            charInputs = document.querySelectorAll(`.char-input${value}`);
+            // charInputs[0].focus();
+            indexHash=0;
+            wordArray=[];
+            
+        };
+        
+        const checkWords = (wordArray)=>
+        {
+            wordArray.forEach((element,index)=>
+    {
+       
+        keySelector=document.getElementById(element)
+        let indexof=actualWord.indexOf(element.toLowerCase())
+        console.log(indexof)
+       if(indexof>=0)
+       {
+          if(wordArray[index]===actualWord[index].toUpperCase())
+          {
+            answer.push(1)
+            actualWord[index]='1'
+            console.log(actualWord)
+            keySelector.style.backgroundColor='#79b851';
+            keySelector.style.color='white';
+            charInputs[index].style.backgroundColor='#79b851';
+            charInputs[index].style.color='white'
+          }
+          else{
+            answer.push(0)
+            keySelector.style.backgroundColor='#f3c237';
+            keySelector.style.color='white';
+            charInputs[index].style.backgroundColor='#f3c237';
+            charInputs[index].style.color='white'
+          }
+       }
+       else{
+                 answer.push(-1)
+                 keySelector.style.backgroundColor='#989a9c';
+            keySelector.style.color='white';
+            charInputs[index].style.backgroundColor='#989a9c';
+            charInputs[index].style.color='white'
+       }
+})
+
+   actualWord=[...storeActualWord];
+        
+        }
+      
+        const moveFocusAndSetValue = (input, key) => {
+            if (indexHash < charInputs.length - 1) {
+                if(key.textContent==='Cut')
+                {
+                    if(indexHash===0)
+                    {
+                         input.value="";
+                         wordArray=[]
+                    }
+                    else{
+                        if(input.value.length===0)
+                        {
+                        input.value="";
+                        
+                        indexHash--;
+                    // charInputs[indexHash].focus()
+                    charInputs[indexHash].value=""
+                        }
+                        else{
+                            input.value=""
+                        }
+                        wordArray.pop();
+                    }
+                }
+                else if(key.textContent==='Enter')
+                {
+                   
+                }
+                
+                else{
+                input.value = key.textContent;
+                wordArray.push(key.textContent)
+                console.log(wordArray)
+                // charInputs[indexHash + 1].focus();
+                indexHash++;
+                }
+                
+            }
+        
+            else if(indexHash===4)
+            {
+
+                if(key.textContent==="Cut")
+                {
+                    if(input.value.length===0)
+                    {
+                     input.value="";
+                     indexHash--;
+                     charInputs[indexHash].value="";
+                }
+                else{
+                    input.value="";
+                }
+                    wordArray.pop();
+                     
+                }
+                else if(key.textContent==="Enter"&&input.value.length===1)
+                {
+                    wordArray.forEach((ele)=>
+                    {
+                        makeWord+=ele;
+                    })
+                    if(wordset.has(makeWord.toLowerCase()))
+                    {
+                        makeWord='';
+                    checkWords(wordArray);
+                    if (classIndex < 5) {
+                classIndex++;
+                inputSelector(classIndex);
+                    }}
+                    else{
+                        makeWord='';
+                        console.log('check')
+                        for(let i=0;i<5;i++)
+                        {
+                            charInputs[i].value="";
+                           
+                        }
+                        inputSelector(classIndex)
+                        wordArray=[];
+                    }
+               }
+                    
+                
+                else{
+                input.value = key.textContent;
+                wordArray.push(key.textContent)
+                console.log(wordArray)
+               
+                }
+                
+            }
+        };
+
+        const attachKeyClickListeners = () => {
+            keys.forEach((key) => {
+                key.addEventListener('click', () => {
+                    console.log(indexHash)
+                   if(indexHash===4&&charInputs[indexHash].value.length===1)
+                   {
+                    if(key.textContent==='Cut'||key.textContent==='Enter')
+                    {
+                        moveFocusAndSetValue(charInputs[indexHash], key);
+                    }
+                   }
+                   else{
+                    moveFocusAndSetValue(charInputs[indexHash], key);
+                   }
+                    
+                   
+                });
+            });
+        };
+
+        const attachInputListeners = () => {
+            charInputs.forEach((input, index) => {
+                input.addEventListener('input', () => {
+                    if (input.value.length === 1) {
+                        moveFocusAndSetValue(input, keys[indexHash]);
+                    }
+                });
+            });
+        };
+
+       
+
+        inputSelector(classIndex);
+       
+        attachKeyClickListeners();
+    </script>
+</body>
+</html>
