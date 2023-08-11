@@ -173,17 +173,18 @@
      
     <script type="module">
         let wordset;
-        let actualWord;
+        let solution;
         let storeActualWord;
         let random=Math.floor(Math.random()*5728);
        fetch('/api/wordset').then((response)=>response.json()).then((data)=>
        {
 
         console.log(data)
-                 actualWord=data.wordset[random]
-                 actualWord=actualWord.split('')
-                 storeActualWord=[...actualWord];
-                 console.log(actualWord)
+                 solution=data.wordset[random]
+                 solution=solution.toUpperCase();
+                 solution=solution.split('')
+                 storeActualWord=[...solution];
+                 console.log(solution)
                 wordset=new Set(data.wordset);
                console.log(wordset.has("which"))
        })
@@ -207,47 +208,80 @@
             wordArray=[];
             
         };
-        
-        const checkWords = (wordArray)=>
+        const change=(status)=>
         {
-            wordArray.forEach((element,index)=>
-    {
-       
-        keySelector=document.getElementById(element)
-        let indexof=actualWord.indexOf(element.toLowerCase())
-        console.log(indexof)
-       if(indexof>=0)
-       {
-          if(wordArray[index]===actualWord[index].toUpperCase())
-          {
-            answer.push(1)
-            actualWord[index]='1'
-            console.log(actualWord)
+            console.log(wordArray)
+           wordArray.forEach((element,index)=>
+           {
+            keySelector=document.getElementById(element)
+            if(status[index]===1)
+            {
+           
             keySelector.style.backgroundColor='#79b851';
             keySelector.style.color='white';
             charInputs[index].style.backgroundColor='#79b851';
             charInputs[index].style.color='white'
-          }
-          else{
-            answer.push(0)
-            keySelector.style.backgroundColor='#f3c237';
+            }
+            else if(status[index]===0)
+            {
+                keySelector.style.backgroundColor='#f3c237';
             keySelector.style.color='white';
             charInputs[index].style.backgroundColor='#f3c237';
             charInputs[index].style.color='white'
-          }
-       }
-       else{
-                 answer.push(-1)
-                 keySelector.style.backgroundColor='#989a9c';
+            }
+            else
+            {
+                keySelector.style.backgroundColor='#989a9c';
             keySelector.style.color='white';
             charInputs[index].style.backgroundColor='#989a9c';
             charInputs[index].style.color='white'
-       }
-})
-
-   actualWord=[...storeActualWord];
-        
+            }
+           })
         }
+        const check=(guess) => {
+    const solutionTrack = [false, false, false, false, false]
+    const status = [undefined,undefined ,undefined,undefined,undefined]
+   console.log(guess);
+    guess.forEach((letter, i) => {
+      if (letter === solution[i]) {
+        status[i] = 1
+        solution[i]='1'
+        return
+      }
+    })
+  
+  
+    guess.forEach((letter, i) => {
+      if (status[i]!==undefined) 
+      {
+        
+        return
+      }
+  
+      if (!solution.includes(letter)) {
+        status[i] = -1
+        return
+      }
+  
+     
+    //   const indexOf = solution.findIndex(
+    //     (x, index) => x === letter && !solutionTrack[index]
+    //   )  
+    const indexOf=solution.indexOf(letter)
+      if (indexOf !==-1) {
+        status[i] = 0
+        solution[indexOf]='1'
+        return
+      } else {
+        status[i] =-1
+        return
+      }
+    })
+  solution=[...storeActualWord]
+  console.log(status)
+   change(status)
+    
+  }
       
         const moveFocusAndSetValue = (input, key) => {
             if (indexHash < charInputs.length - 1) {
@@ -314,7 +348,8 @@
                     if(wordset.has(makeWord.toLowerCase()))
                     {
                         makeWord='';
-                    checkWords(wordArray);
+                        let guess=[...wordArray]
+                    check(guess);
                     if (classIndex < 5) {
                 classIndex++;
                 inputSelector(classIndex);

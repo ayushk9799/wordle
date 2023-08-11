@@ -3,6 +3,7 @@ import path from 'path'
 import { populateWordSet } from './check.js';
 import { fileURLToPath } from 'url';
 const app=express();
+let wordset;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 console.log(__dirname)
@@ -12,10 +13,16 @@ console.log(__dirname)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,  '/public/index.html'));
 });
+
+const getWordSet=async()=>
+{
+     wordset=await populateWordSet();
+}
+getWordSet();
 app.get('/api/wordset',async (req,res)=>
 {
-    const wordset=await populateWordSet();
-    console.log(wordset)
+   
+    
     res.json({wordset:[...wordset]})
 })
 app.listen(3000,()=>
