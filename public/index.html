@@ -203,7 +203,7 @@
 
         const inputSelector = (value) => {
             charInputs = document.querySelectorAll(`.char-input${value}`);
-            // charInputs[0].focus();
+          
             indexHash=0;
             wordArray=[];
             
@@ -224,8 +224,12 @@
             }
             else if(status[index]===0)
             {
+                console.log(keySelector.style.backgroundColor)
+                if(keySelector.style.backgroundColor!=='rgb(121, 184, 81)')
+                {
                 keySelector.style.backgroundColor='#f3c237';
             keySelector.style.color='white';
+                }
             charInputs[index].style.backgroundColor='#f3c237';
             charInputs[index].style.color='white'
             }
@@ -239,7 +243,7 @@
            })
         }
         const check=(guess) => {
-    const solutionTrack = [false, false, false, false, false]
+    
     const status = [undefined,undefined ,undefined,undefined,undefined]
    console.log(guess);
     guess.forEach((letter, i) => {
@@ -262,11 +266,7 @@
         status[i] = -1
         return
       }
-  
-     
-    //   const indexOf = solution.findIndex(
-    //     (x, index) => x === letter && !solutionTrack[index]
-    //   )  
+
     const indexOf=solution.indexOf(letter)
       if (indexOf !==-1) {
         status[i] = 0
@@ -397,18 +397,6 @@
                 });
             });
         };
-
-        const attachInputListeners = () => {
-            charInputs.forEach((input, index) => {
-                input.addEventListener('input', () => {
-                    if (input.value.length === 1) {
-                        moveFocusAndSetValue(input, keys[indexHash]);
-                    }
-                });
-            });
-        };
-
-       
 
         inputSelector(classIndex);
        
