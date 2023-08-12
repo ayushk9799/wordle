@@ -235,8 +235,11 @@
             }
             else
             {
+                if(keySelector.style.backgroundColor!=='rgb(121, 184, 81)'||keySelector.style.backgroundColor!=='rgb(243, 194, 55)')
+                {
                 keySelector.style.backgroundColor='#989a9c';
             keySelector.style.color='white';
+                }
             charInputs[index].style.backgroundColor='#989a9c';
             charInputs[index].style.color='white'
             }
@@ -246,34 +249,28 @@
     
     const status = [undefined,undefined ,undefined,undefined,undefined]
    console.log(guess);
-    guess.forEach((letter, i) => {
-      if (letter === solution[i]) {
-        status[i] = 1
-        solution[i]='1'
+    guess.forEach((letter, index) => {
+      if (letter === solution[index]) {
+        status[index] = 1
+        solution[index]='1'
         return
       }
     })
   
   
-    guess.forEach((letter, i) => {
-      if (status[i]!==undefined) 
+    guess.forEach((letter, index) => {
+      if (status[index]!==undefined) 
       {
         
         return
       }
-  
-      if (!solution.includes(letter)) {
-        status[i] = -1
-        return
-      }
-
     const indexOf=solution.indexOf(letter)
       if (indexOf !==-1) {
-        status[i] = 0
+        status[index] = 0
         solution[indexOf]='1'
         return
       } else {
-        status[i] =-1
+        status[index] =-1
         return
       }
     })
